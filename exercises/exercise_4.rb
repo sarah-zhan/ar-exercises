@@ -15,5 +15,8 @@ Store.create(name: 'Yaletown', annual_revenue: 430_000, mens_apparel: true, wome
 puts @mens_stores
 pp @mens_stores.select(:name, :annual_revenue)
 
-@womens_stores = Store.where(womens_apparel: true)
-pp @womens_stores.where('annual_revenue < ?', 1_000_000).select(:name)
+# @womens_stores = Store.where(womens_apparel: true)
+# pp @womens_stores.where('annual_revenue < ?', 1_000_000).select(:name)
+
+# we can chain all together
+pp @womens_stores = Store.where(womens_apparel: true).where('annual_revenue < ?', 1_000_000).select(:name)
